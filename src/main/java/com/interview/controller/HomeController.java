@@ -1,0 +1,29 @@
+package com.interview.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+
+	@RequestMapping("/eproduct")
+	public String publicPage() {
+		return "index";
+	}
+	
+	
+	@RequestMapping("/loginpage")
+	public String loginPage() {
+		return "login";
+		
+	}
+	
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
+		
+	}
+	
+
+
+}

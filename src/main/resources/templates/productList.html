@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container" style="margin-right: 60%;">
+		<div class="row" style="margin-bottom: -50px;">
+			<div class="col-xs-8">
+				<h2 class="section-headline">
+					<h2 class="section-headline">
+						<span>All eProducts</span>
+					</h2>
+				</h2>
+			</div>
+			<div class="col-xs-4">
+				<img th:src="@{/image/images.jpeg}" class="img-responsive" />
+			</div>
+		</div>
+
+		<div class="row" style="margin-top: 60px;">
+			<div class="col-xs-9 col-xs-offset-3">
+				<div th:if="${emptyList}">
+					<h5 style="font-style: italic;">Oops, no result is found.Try
+						something else or try again later</h5>
+				</div>
+
+				<div class="container">
+					<div class="row">
+
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">Product Name</th>
+										<th scope="col">Product Price</th>
+										<th scope="col">Product Type</th>
+										<!--  <th scope="col" class="text-center">Quantity</th>-->
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr data-th-each="product : ${products}">
+										<td th:text="${product.productName}"></td>
+										<td  th:text="${product.price}"></td>
+										<td th:text="${product.productType}"></td>
+										<!--  <td><input class="form-control" type="text" value="1" /></td>-->
+										
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- end of container -->
+
+
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar"></div>
+	<div class="container">
+		<div class="row">
+		<div class="text-center" style="background-color: black;">
+		<h2 style="color: green;"><strong>Top 5 Profitable For  Products</strong> </h2>
+		</div>
+
+			<div class="table-responsive col-xs-9 col-xs-offset-3">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Product Name</th>
+							<th scope="col">Profit Percentage Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-th-each="product : ${mosstProfitableProducts}">
+							<td th:text="${product.productName}"></td>
+							<td th:text="${product.profitPercentage}"></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	
+		<div class="row">
+		<div class="text-center" style="background-color: black;">
+		<h2 style="color: green;"><strong>Most Sold Products</strong> </h2>
+		</div>
+	</div>
+	
+		
+	</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar"></div>
+
+	<div class="container">
+		<div class="row" style="background-color: #b2ffb2;">
+			<form class="form-horizontal" th:action="@{/product/eproductUpdate}"
+				method="post">
+				<fieldset>
+					<legend class="center-block text-center"
+						style="color: green; background-color: white; padding: 1%; text-decoration: underline; font-style: italic; font-weight: bold;">Update
+						EProduct Information</legend>
+						
+						<input type="hidden" name="id" th:value="${product.id}">
+
+					<!-- Product Name -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="productName"
+							style="color: black;">* Product Name</label>
+						<div class="col-md-8">
+							<input type="text" name="productName" class="form-control"
+								id="productName" th:value="${product.productName}" required="required"
+								placeholder="Product Name" /> <span class="help-block">Product
+								Name of the EProduct</span>
+						</div>
+					</div>
+
+					<!-- price-->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="price"
+							style="color: black;">* Product Price</label>
+						<div class="col-md-8">
+							<input type="number" name="price" class="form-control" id="price"
+								th:value="${product.price}" required="required"
+								placeholder="Price" /> <span class="help-block">price of
+								the EProduct</span>
+						</div>
+					</div>
+                      
+						<!-- our Price -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="ourPrice"
+							style="color: black;">* Our Price</label>
+						<div class="col-md-8">
+							<input type="number" name="ourPrice" class="form-control"
+								id="ourPrice" th:value="${product.ourPrice}" required="required"
+								placeholder="Our Price" /> <span class="help-block">Our
+								price of the EProduct</span>
+						</div>
+					</div>
+ 					<!-- product type-->
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="productType"
+							style="color: black;">* Product Type</label>
+						<div class="col-xs-2">
+							<select th:value="${product.productType}" id="productType"
+								name="productType" class="form-control">
+								<option value="" selected="selected" disabled="disabled">Please
+									select an option...</option>
+								<option value="RAM"
+									th:selected="(${product.productType}=='RAM')">RAM</option>
+								<option value="MOTHERBOARD"
+									th:selected="(${product.productType}=='MOTHERBOARD')">MOTHERBOARD</option>
+								<option value="GRAPHICS CARD"
+									th:selected="(${product.productType}=='GRAPHICS CARD')">GRAPHICS
+									CARD</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group text-center">
+						<button type="submit" class="btn btn-success">Update
+							EProduct</button>
+						<a class="btn btn-danger" th:href="@{/}">Cancel</a>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

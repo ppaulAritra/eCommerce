@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar"></div>
+	<div class="container">
+		<div style="padding: 2%; background-color: black;">
+			<a style="color: green; font-size: 30px;" th:href="@{/product/add}"><button>Add
+				New Product</button><span  style="color: white; font-size: 15px;">Click for add product</span></a>
+			</li>
+		</div>
+		<div class="table-responsive" style="padding: 2%;">
+			<table id="myTable"
+				class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Product Name</th>
+						<th>Product Price</th>
+						<th>Our Price</th>
+						<th>Profit Percentage</th>
+						<th>Product Type</th>
+						<th>Action</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-each="product : ${products}">
+						<td th:text="${product.productName}"></td>
+						<td th:text="${product.price}"></td>
+						<td th:text="${product.ourPrice}"></td>
+						<td th:text="${product.profitPercentage}"><p>%</p></td>
+						<td th:text="${product.productType}"></td>
+
+						<td>&nbsp; &nbsp; &nbsp;<a
+							th:href="@{/product/eproductUpdate?id=}+${product.id}"><span
+								class="glyphicon glyphicon-info-sign"></span> </a> &nbsp; &nbsp;
+							&nbsp;
+							</li> <a th:href="@{/product/deleteProduct?id=}+${product.id}"><span
+								class="glyphicon glyphicon-trash"></span> </a></td>
+
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#myTable').DataTable();
+		});
+	</script>
+</body>
+</html>
